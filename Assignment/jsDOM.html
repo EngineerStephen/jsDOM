@@ -4,54 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jsDOM</title>
+    <link rel="stylesheet" href="jsDOM.css">
 </head>
 
 
-    
-  <form id="myForm" onsubmit="handleSubmit()">
-    <label for="username"> Please enter your username: </label>
-    <input type="text" id="username" name="username">
-    <button type="submit">Submit</button>
-  </form>
+    <body>        
+        <form id="myJsForm" onsubmit="handleSubmit()">
+            <label for="username"> Please enter your username: </label>
+            <input type="text" id="username" name="username">
+            <button type="submit">Submit</button>
+        </form>
 
-    <script>
-        function handleSubmit(){
-            event.preventDefault(); 
-            const username = document.getElementById("username").value;
-            alert("Hello, " + username + "! Form was submitted successfully");
-            
-            
-            let products = [
-            { name: "Laptop", price: 999.99, description: "Powerful computing on the go" },
-            { name: "Smartphone", price: 699.99, description: "Stay connected wherever you are" },
-            { name: "Headphones", price: 149.99, description: "Immersive audio experience" }
-            ];
-    
-            for (let p of products){
-                console.log(p);
+        <script>
+            function handleSubmit(){
+                event.preventDefault(); 
+                const username = document.getElementById("username").value;
+                alert("Hello " + username + "! Form was submitted successfully");
+                
+                
+                let products = [
+                { name: "Laptop", price: 999.99, description: "Powerful computing on the go" },
+                { name: "Smartphone", price: 699.99, description: "Stay connected wherever you are" },
+                { name: "Headphones", price: 149.99, description: "Immersive audio experience" }
+                ];
+        
+                for (let p of products){
+                    console.log(p);
+                }
+                    
+                    
+                document.getElementById("myJsForm").reset();
+
             }
+        
+        </script>
+        
+        <script>
+            handleSubmit();
+        </script>
+
+
+        <div class="form-container">
+            <form id="jsForm" onsubmit="handleSubmit(jsForm)">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+
+        </div>
+
+        <script>
+            function handleSubmitForm(js){
+                event.preventDefault(); 
+
+                const name = event.target.elements.name.value;
+                const email = event.target.elements.email.value;
+                const message = event.target.elements.message.value;
+                alert("Hello" + username + "You submitted:", +  name, email, message)
                 
-                
-            document.getElementById("myForm").reset();
+                console.log(name, email, message);
 
-        }
-    
-    </script>
-    
-    <script>
-        handleSubmit();
-    </script>
+                document.getElementById("jsForm").reset();
+            }
+        </script>
+        
+        <script>
+            handleSubmitForm(js);
+        </script>
 
-
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>
