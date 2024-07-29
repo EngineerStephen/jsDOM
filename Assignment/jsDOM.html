@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsDOM</title>
+</head>
+
+
+    
+  <form id="myForm" onsubmit="handleSubmit()">
+    <label for="username"> Please enter your username: </label>
+    <input type="text" id="username" name="username">
+    <button type="submit">Submit</button>
+  </form>
+
+    <script>
+        function handleSubmit(){
+            event.preventDefault(); 
+            const username = document.getElementById("username").value;
+            alert("Hello, " + username + "! Form was submitted successfully");
+            
+            
+            let products = [
+            { name: "Laptop", price: 999.99, description: "Powerful computing on the go" },
+            { name: "Smartphone", price: 699.99, description: "Stay connected wherever you are" },
+            { name: "Headphones", price: 149.99, description: "Immersive audio experience" }
+            ];
+    
+            for (let p of products){
+                console.log(p);
+            }
+                
+                
+            document.getElementById("myForm").reset();
+
+        }
+    
+    </script>
+    
+    <script>
+        handleSubmit();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
